@@ -9,6 +9,7 @@
 		var $MaterialType;
 		var $MaterialWidth;
 		var $MaterialHeight;
+		var $MaterialPrice;
 		var $CreatedBy;
 		var $CreatedDate;
 		var $UpdatedBy;
@@ -39,6 +40,7 @@
 			$this->MaterialName = $datas["MaterialName"];
 			$this->MaterialWidth = $datas["MaterialWidth"];
 			$this->MaterialHeight = $datas["MaterialHeight"];
+			$this->MaterialPrice = $datas["MaterialPrice"];
 			$this->CreatedBy = $datas["CreatedBy"];
 			$this->CreatedDate = $datas["CreatedDate"];
 			$this->UpdatedBy = $datas["UpdatedBy"];
@@ -69,6 +71,7 @@
 						MaterialName = ?  , 
 						MaterialWidth = ?  ,
 						MaterialHeight = ?  ,
+						MaterialPrice = ? ,
 						UpdatedBy = ?  ,
 						UpdatedDate = NOW() 
 						WHERE id = ?
@@ -77,6 +80,7 @@
 				$params["MaterialName"] = $this->MaterialName;
 				$params["MaterialWidth"] = $this->MaterialWidth;
 				$params["MaterialHeight"] = $this->MaterialHeight;
+				$params["MaterialPrice"] = $this->MaterialPrice;
 				$params["UpdatedBy"] = $this->CreatedBy;
 				$params["id"] = $this->id;
 				
@@ -86,12 +90,13 @@
 			
 				$params = array();
 				
-				$sql = "INSERT INTO material (id ,MaterialCode , MaterialName  , MaterialWidth , MaterialHeight  , CreatedBy , CreatedDate , UpdatedBy , UpdatedDate )
-						VALUES (NULL , ? , ? , ? , ? , ? , NOW() , ? , NOW())";
+				$sql = "INSERT INTO material (id ,MaterialCode , MaterialName  , MaterialWidth , MaterialHeight  , MaterialPrice , CreatedBy , CreatedDate , UpdatedBy , UpdatedDate )
+						VALUES (NULL , ? , ? , ? , ? , ? , ? , NOW() , ? , NOW())";
 				$params["MaterialCode"] = $this->MaterialCode;
 				$params["MaterialName"] = $this->MaterialName;
 				$params["MaterialWidth"] = $this->MaterialWidth;
 				$params["MaterialHeight"] = $this->MaterialHeight;
+				$params["MaterialPrice"] = $this->MaterialPrice;
 				$params["CreatedBy"] = $this->CreatedBy;
 				$params["UpdatedBy"] = $this->CreatedBy;
 				
